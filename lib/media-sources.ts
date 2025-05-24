@@ -223,6 +223,13 @@ export const defaultMediaSources: MediaSource[] = [
     description: "Camaras del Puente Chaco-Corrientes",
   },
   {
+    id: "sise-argentina-resistencia",
+    name: "Camaras de Resistencia Chaco",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCftan3cVkKKfxXpRN9JUX7A&autoplay=1",
+    description: "Camaras de Resistencia",
+  },
+  {
     id: "noticiero-9",
     name: "Canal 9 Chaco",
     type: "streaming",
