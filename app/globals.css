@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.5% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Fullscreen mode */
+  body.is-fullscreen {
+    overflow: hidden;
+    background-color: black;
+  }
+}
+
+/* Clases explícitas para el grid */
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(203, 213, 225, 0.3);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Fullscreen mode */
+.fullscreen-container {
+  transition: all 0.3s ease;
+}
+
+.fullscreen-container:fullscreen {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fullscreen-container:fullscreen .container {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.fullscreen-container:fullscreen header,
+.fullscreen-container:fullscreen footer,
+.fullscreen-container:fullscreen ~ footer,
+.fullscreen-container:fullscreen ~ div {
+  display: none;
+}
+
+.fullscreen-grid-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Distribución uniforme de celdas en pantalla completa */
+.fullscreen-media-grid {
+  display: grid !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.fullscreen-container:fullscreen .fullscreen-media-grid {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr)) !important;
+}
+
+/* Ajustar grid para 2x2, 3x3 y 4x4 */
+.fullscreen-container:fullscreen .grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+}
+
+.fullscreen-container:fullscreen .grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: repeat(3, 1fr) !important;
+}
+
+.fullscreen-container:fullscreen .grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: repeat(4, 1fr) !important;
+}
+
+.fullscreen-container:fullscreen .space-y-6 {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen-container:fullscreen .fullscreen-cell {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  height: 100% !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+}
+
+/* Ocultar la barra de control en pantalla completa */
+.fullscreen-container:fullscreen .bg-white.dark\:bg-slate-800\/50.rounded-md.p-4 {
+  display: none !important;
+}
+
+/* Ensure controls are visible in fullscreen */
+.fullscreen-container:fullscreen .opacity-0.pointer-events-none {
+  pointer-events: auto !important;
+}
+
+/* Asegurar que los controles del reproductor sean visibles cuando se necesiten */
+.fullscreen-container:fullscreen .opacity-0.pointer-events-none:hover,
+.fullscreen-container:fullscreen .opacity-0.pointer-events-none:focus-within {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Estilos para el dropdown en pantalla completa */
+.dropdown-position-bottom {
+  top: 100%;
+  margin-top: 4px;
+}
+
+.dropdown-position-top {
+  bottom: 100%;
+  margin-bottom: 4px;
+}
+
+/* Asegurar que el dropdown esté por encima de todo */
+.fullscreen-container:fullscreen .fixed.z-50 {
+  z-index: 9999 !important;
+}
+
+/* Optimize for TV display */
+@media (display-mode: fullscreen) {
+  .fullscreen-container {
+    font-size: 1.2em;
+  }
+}
+
+/* Añadir estilos para el selector modal en pantalla completa */
+.fullscreen-media-selector-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.fullscreen-media-selector-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.dark .fullscreen-media-selector-content {
+  background-color: #1e293b;
+  color: white;
+}
+
+/* Asegurar que el selector tenga prioridad sobre otros elementos */
+.fullscreen-media-selector-modal {
+  z-index: 99999 !important;
+}
