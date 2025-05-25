@@ -243,4 +243,11 @@ export const defaultMediaSources: MediaSource[] = [
     url: "https://www.youtube.com/embed/live_stream?channel=UCE8whPomb-u52ToG2Qr0sJg&autoplay=1",
     description: "Multimedios Ciudad - Presidencia Roque Sáenz Peña",
   },
+  {
+    id: "rgb-studios",
+    name: "RGB Studios",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCleh2hyx9phNfHkRzrTPiaA&autoplay=1",
+    description: "RGB Studios",
+  },
 ];
