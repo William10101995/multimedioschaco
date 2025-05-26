@@ -32,6 +32,21 @@ function addYouTubeParams(
   return urlObj.toString();
 }
 
+function getTwitchEmbedUrl(url: string) {
+  // Si ya es una URL del reproductor, usar tal como está
+  if (url.includes("player.twitch.tv")) {
+    return url;
+  }
+
+  // Extraer el nombre del canal de la URL de Twitch
+  const match = url.match(/twitch\.tv\/([^\/\?]+)/);
+  if (match && match[1]) {
+    const channelName = match[1];
+    return `https://player.twitch.tv/?channel=${channelName}&parent=${window.location.hostname}&autoplay=true&muted=true`;
+  }
+  return url;
+}
+
 export default function MediaPlayer({
   source,
   onClose,
@@ -134,6 +149,32 @@ export default function MediaPlayer({
         console.error("Error al cambiar el estado de mute en YouTube:", error);
       }
     }
+
+    // Manejar Twitch - recargar el iframe con el nuevo estado de mute
+    if (
+      (source.url.includes("twitch.tv") ||
+        source.url.includes("player.twitch.tv")) &&
+      iframeRef.current
+    ) {
+      try {
+        // Si ya es una URL del reproductor, extraer el canal de los parámetros
+        let channelName = "";
+        if (source.url.includes("player.twitch.tv")) {
+          const urlObj = new URL(source.url);
+          channelName = urlObj.searchParams.get("channel") || "";
+        } else {
+          const match = source.url.match(/twitch\.tv\/([^\/\?]+)/);
+          channelName = match ? match[1] : "";
+        }
+
+        if (channelName) {
+          const newSrc = `https://player.twitch.tv/?channel=${channelName}&parent=${window.location.hostname}&autoplay=true&muted=${newMutedState}`;
+          iframeRef.current.src = newSrc;
+        }
+      } catch (error) {
+        console.error("Error al cambiar el estado de mute en Twitch:", error);
+      }
+    }
   };
 
   const toggleFullscreen = () => {
@@ -224,8 +265,22 @@ export default function MediaPlayer({
         )}
 
       {(source.type === "tv" || source.type === "streaming") &&
+        (source.url.includes("twitch.tv") ||
+          source.url.includes("player.twitch.tv")) && (
+          <iframe
+            ref={iframeRef}
+            src={getTwitchEmbedUrl(source.url)}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        )}
+
+      {(source.type === "tv" || source.type === "streaming") &&
         !source.url.includes("youtube.com") &&
-        !source.url.includes("facebook.com") && (
+        !source.url.includes("facebook.com") &&
+        !source.url.includes("twitch.tv") &&
+        !source.url.includes("player.twitch.tv") && (
           <video
             ref={videoRef}
             autoPlay
