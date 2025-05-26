@@ -261,7 +261,7 @@ export const defaultMediaSources: MediaSource[] = [
     id: "magenta",
     name: "Magenta",
     type: "streaming",
-    url: "https://player.twitch.tv/?channel=magentaarg&parent=multimedioschaco.vercel.app",
+    url: "https://player.twitch.tv/?channel=magentaarg&parent=multimedioschaco.vercel.app&autoplay=true",
     description: "Magenta - Presidencia Roque Sáenz Peña",
   },
   {
