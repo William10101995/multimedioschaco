@@ -250,4 +250,25 @@ export const defaultMediaSources: MediaSource[] = [
     url: "https://www.youtube.com/embed/live_stream?channel=UCleh2hyx9phNfHkRzrTPiaA&autoplay=1",
     description: "RGB Studios",
   },
+  {
+    id: "ciudad-tv-streaming",
+    name: "Ciudad TV Streaming",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCNxDK6lBUeSjZeOPWOWZ6sA&autoplay=1",
+    description: "Ciudad TV - Canal de noticias y entretenimiento",
+  },
+  {
+    id: "magenta",
+    name: "Magenta",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCihNm2U8IO3afJupQCixgAQ&autoplay=1",
+    description: "Magenta - Presidencia Roque Sáenz Peña",
+  },
+  {
+    id: "laca",
+    name: "Laca Stream",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCPIgqTAeWOgNvrjsGY68JSw&autoplay=1",
+    description: "Laca Stream - Canal de streaming político plural ",
+  },
 ];
