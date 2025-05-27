@@ -138,8 +138,22 @@ export const defaultMediaSources: MediaSource[] = [
     id: "radio-sudoeste",
     name: "Radio Sudoeste 103.1 FM",
     type: "radio",
-    url: "http://www.genexservicios.com:8092/stream/1/;",
+    url: "http://www.genexservicios.com:8092/stream/1/",
     description: "Radio Sudoeste - Charata",
+  },
+  {
+    id: "radio-sudamericana",
+    name: "Radio Sudamericana 100.3 FM",
+    type: "radio",
+    url: "https://turadioenvivo.com/proxy/sudamericana/stream",
+    description: "Radio Sudamericana - FM 100.3",
+  },
+  {
+    id: "radio-idependencia",
+    name: "Radio Independencia 106.9 FM",
+    type: "radio",
+    url: "https://ssl.veemesoft.com.ar/9ca5373614e3f12d857c",
+    description: "Radio Independencia - FM 106.9",
   },
 
   // TV
@@ -170,6 +184,13 @@ export const defaultMediaSources: MediaSource[] = [
     type: "tv",
     url: "https://genexservicios.com:19360/sudoestetv/sudoestetv.m3u8",
     description: "Sudoeste Televisora Color - Canal 2",
+  },
+  {
+    id: "5-tv",
+    name: "5 TV",
+    type: "tv",
+    url: "https://617c5175c970b.streamlock.net:4444/tvcinco/live1/chunklist_w428826662.m3u8",
+    description: "5 TV - Canal de noticias y entretenimiento",
   },
 
   // Streaming
@@ -269,6 +290,21 @@ export const defaultMediaSources: MediaSource[] = [
     name: "Laca Stream",
     type: "streaming",
     url: "https://www.youtube.com/embed/live_stream?channel=UCPIgqTAeWOgNvrjsGY68JSw&autoplay=1",
-    description: "Laca Stream - Canal de streaming político plural ",
+    description: "Laca Stream - Canal de streaming político plural",
+  },
+  {
+    id: "pixel-stream",
+    name: "Pixel Streaming Studio",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCQf3cPiySM77EzuXyrMSPrQ&autoplay=1",
+    description:
+      "Pixel Streaming Studio - Canal de streaming en Resistencia, Chaco",
+  },
+  {
+    id: "radio-sudamericana-stream",
+    name: "Radio Sudamericana Streaming",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCfnW8ZvUokNzgBDioLyb2Jw&autoplay=1",
+    description: "Radio Sudamericana - Canal de noticias y entretenimiento",
   },
 ];
