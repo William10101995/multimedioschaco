@@ -307,4 +307,11 @@ export const defaultMediaSources: MediaSource[] = [
     url: "https://www.youtube.com/embed/live_stream?channel=UCfnW8ZvUokNzgBDioLyb2Jw&autoplay=1",
     description: "Radio Sudamericana - Canal de noticias y entretenimiento",
   },
+  {
+    id: "radio-x5-stream",
+    name: "Radio X5 107.3 FM",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCLLmXA0AWicOw_kBDtEzvMg&autoplay=1",
+    description: "Radio X5 107.3 FM - Canal de noticias y entretenimiento",
+  },
 ];
