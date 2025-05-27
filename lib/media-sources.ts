@@ -314,4 +314,18 @@ export const defaultMediaSources: MediaSource[] = [
     url: "https://www.youtube.com/embed/live_stream?channel=UCLLmXA0AWicOw_kBDtEzvMg&autoplay=1",
     description: "Radio X5 107.3 FM - Canal de noticias y entretenimiento",
   },
+  {
+    id: "senado-argentina",
+    name: "Senado de la Nación Argentina",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UCStm2uvQKowSXrnCzTWAn6Q&autoplay=1",
+    description: "Senado de la Nación Argentina - Canal oficial",
+  },
+  {
+    id: "camara-de-diputados-argentina",
+    name: "Cámara de Diputados de la Nación Argentina",
+    type: "streaming",
+    url: "https://www.youtube.com/embed/live_stream?channel=UC5KfW9_wv4tqbIPgY8tMG-w&autoplay=1",
+    description: "Cámara de Diputados de la Nación Argentina - Canal oficial",
+  },
 ];
